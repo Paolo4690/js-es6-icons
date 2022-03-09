@@ -13,7 +13,7 @@ function generate1Card (array) {
         let cardIcon = `
                         <div class="card-container">
                             <div class="card">
-                                <i style="color:${color}" class="${family} ${prefix}${name} ${type}"></i>
+                                <i style="color:#${generateRandomcolor()}" class="${family} ${prefix}${name} ${type}"></i>
                                 <p>${name}</p>
                             </div>
                         </div>`;
@@ -70,3 +70,14 @@ eleSelect.addEventListener('change', function(){
     }
 
 })
+
+function generateRandomcolor() {
+    let colRnd = '';
+    let sChrs = "0123456789abcdef";
+    for (let i = 0; i < 6; i++) {
+      let x = Math.floor(Math.random() * sChrs.length);
+      colRnd += sChrs.substring(x, x + 1);
+    }
+
+    return colRnd;
+  }
